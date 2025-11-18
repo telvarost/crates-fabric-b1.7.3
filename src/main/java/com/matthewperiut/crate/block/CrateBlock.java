@@ -21,6 +21,7 @@ import static net.modificationstation.stationapi.api.util.Identifier.of;
 
 @HasCustomBlockItemFactory(CrateBlockItem.class)
 public class CrateBlock extends TemplateBlockWithEntity {
+
     public CrateBlock(Identifier identifier) {
         super(identifier, Material.WOOD);
     }
