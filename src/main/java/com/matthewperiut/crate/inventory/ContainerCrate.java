@@ -20,6 +20,10 @@ public class ContainerCrate extends ScreenHandler {
         public boolean canInsert(ItemStack arg) {
             return !(arg.getItem() instanceof CrateBlockItem);
         }
+
+        public static boolean canQuickMove(ItemStack arg) {
+            return !(arg.getItem() instanceof CrateBlockItem);
+        }
     }
 
     private final int numberOfCrateSlots = 12;
@@ -59,7 +63,7 @@ public class ContainerCrate extends ScreenHandler {
             slotItemCopy = slotItem.copy();
             if (slot < numberOfCrateSlots) {
                 this.insertItem(slotItem, numberOfCrateSlots, this.slots.size(), true);
-            } else {
+            } else if (CrateSlot.canQuickMove(slotItem)) {
                 this.insertItem(slotItem, 0, numberOfCrateSlots, false);
             }
 
